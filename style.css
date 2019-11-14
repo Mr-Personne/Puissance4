@@ -18,3 +18,10 @@
 #game td.player2 {
     background-color: yellow;
 }
+
+.jeton-rouge {
+    background-color: red !important;
+}
+.jeton-jaune {
+    background-color: yellow !important;
+}
