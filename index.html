@@ -1,43 +1,50 @@
-!DOCTYPE html>
+<!DOCTYPE html>
 <html lang="fr">
-	<head>
-		<meta charset="UTF-8" />
-		<meta
-			name="description"
-			content="Jeu réalisé comme première approche de l'algorythme minmax. L'IA est assez forte sans être invincible, peut-être parce qu'il persiste de petites erreurs dans l'algorithme."
-		/>
-		<meta name="author" content="Sylvain Pollet-Villard" />
-		<meta name="viewport" content="width=device-width, initial-scale=1.0" />
 
-		<title>Puissance4</title>
+<head>
+    <!-- Required meta tags -->
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1, shrink-to-fit=no">
+    <meta name="description"
+        content="">
+    <meta name="author" content="">
+    <meta name="category" content="">
+    <meta name="Keywords" content="">
+    <!-- Facebook -->
+    <meta property="og:locale" content="fr_FR">
+    <meta property="og:title" content="">
+    <meta property="og:description" content="">
+    <meta property="og:image" content="">
+    <meta property="og:url" content="">
+    <meta property="og:image:width" content="">
+    <meta property="og:image:height" content="">
+    <meta property="og:image:alt" content="facebook_partage">
+    <!-- Twitter -->
+    <meta name="twitter:title" content="">
+    <meta name="twitter:description" content="">
+    <meta name="twitter:image" content="">
+    <meta name="twitter:card" content="summary_large_image">
+    <meta name="twitter:site" content="">
 
-		<link rel="shortcut icon" href="favicon.ico" />
-		<link rel="stylesheet" href="style.css" />
+    <!-- Bootstrap CSS -->
+    <link rel="stylesheet" href="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/css/bootstrap.min.css">
+    <!--  css-->
+    <link rel="stylesheet" href="css/style.css">
 
-		<script src="lib/jquery-1.7.2.min.js"></script>
-		<script src="js/ia.js"></script>
-		<script defer src="js/main.js"></script>
-	</head>
+    <title>Puissance 4</title>
+</head>
 
 	<body>
 		<header>
-			<h1>Puissance4</h1>
-			<div id="commandes">
-				<input
-					type="button"
-					value="Nouvelle partie contre l'ordinateur"
-					onclick="app.newGame(true)"
-				/>
-				<input
-					type="button"
-					value="Nouvelle partie à 2 joueurs"
-					onclick="app.newGame(false)"
-				/>
-			</div>
+			
 		</header>
 
 		<div id="grille">
 			<span id="message">Cliquez sur Nouvelle partie pour commencer</span>
 		</div>
+
+		<script src="https://code.jquery.com/jquery-3.3.1.min.js"></script>
+		<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.14.7/umd/popper.min.js"></script>
+		<script src="https://stackpath.bootstrapcdn.com/bootstrap/4.3.1/js/bootstrap.min.js"></script>
 	</body>
 </html>
