@@ -18,11 +18,114 @@
 
 	<body>
 		
-			<div id="game">
-				Veuillez activer javascript pour jouer.
-			</div>
-		<script src="puissance.js"></script>
-	
+		<DIV id=TableauDeJeu 
+		style="Z-INDEX: 2; LEFT: 100px; WIDTH: 350px; POSITION: absolute; TOP: 100px; HEIGHT: 300px">
+		<TABLE onmousedown="if(!Netscape) ClicColonne();"  height=300 cellSpacing=0 cellPadding=0 
+		width=350 background=images/case.gif border=0 id='PlayZone'>
+		  <TBODY>
+		  <TR>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C1L6></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C2L6></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C3L6></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C4L6></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C5L6></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C6L6></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C7L6></TD></TR>
+		  <TR>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C1L5></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C2L5></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C3L5></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C4L5></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C5L5></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C6L5></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C7L5></TD></TR>
+		  <TR>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C1L4></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C2L4></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C3L4></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C4L4></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C5L4></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C6L4></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C7L4></TD></TR>
+		  <TR>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C1L3></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C2L3></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C3L3></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C4L3></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C5L3></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C6L3></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C7L3></TD></TR>
+		  <TR>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C1L2></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C2L2></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C3L2></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C4L2></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C5L2></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C6L2></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C7L2></TD></TR>
+		  <TR>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C1L1></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C2L1></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C3L1></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C4L1></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C5L1></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C6L1></TD>
+			<TD width=50 height=50><IMG height=50 src="images/case.gif" 
+			  width=50 name=C7L1></TD></TR></TBODY></TABLE></DIV>
+		<DIV id=Debug 
+		style="Z-INDEX: 2; LEFT: 43px; WIDTH: 200px; POSITION: absolute; TOP: 411px; HEIGHT: 75px; visibility: hidden;"> 
+		  <P><A href="javascript:StartGame()">StartTest</A><BR><INPUT id=Debug name=Debug>
+		  </P>
+		  <P><A href="javascript:SwapAdversaire()">Adversaire (Ordi/Joueur)</A><br>
+		  </P>
+		</DIV>
+		<DIV id=JetonJaune 
+		style="Z-INDEX: 1; LEFT: 100px; WIDTH: 50px; POSITION: absolute; TOP: -50px; HEIGHT: 50px"><IMG 
+		height=50 src="images/jetonjaune.gif" width=50></DIV>
+		<DIV id=JetonRouge 
+		style="Z-INDEX: 1; LEFT: 100px; VISIBILITY: hidden; WIDTH: 50px; POSITION: absolute; TOP: -50px; HEIGHT: 50px"><IMG 
+		height=50 src="images/jetonrouge.gif" width=50></DIV></BODY>
 	
 	</body>
 </html>

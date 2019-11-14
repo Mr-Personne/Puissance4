@@ -196,5 +196,164 @@ class Puissance4 {
   
   // On initialise le plateau et on visualise dans le DOM
   // (dans la balise d'identifiant `game`).
-  let p4 = new Puissance4('#game'); 
+  let p4 = new Puissance4('#game') 
 //   hello
+  function bot() {
+
+  var colBot = -10;
+  colBot = this.analyse('J' + (3-this.turn), colBot);
+  var tmp = colBot;
+  colBot = this.analyse('J' + (this.turn), colBot);
+  if(colBot < 0 && tmp >= 0)
+    colBot = tmp;
+  if(colBot < 0)
+  {
+    var hasard = Math.round(Math.random()*(this.c-1));
+    colBot = (-colBot)-1;
+    if(colBot === hasard)
+      while(colBot === hasard)
+        colBot = Math.round(Math.random()*(this.c-1));
+    else
+      colBot = hasard;
+  }
+  this.play(colBot);
+}
+
+  function analyse(cname, column)
+{
+  for(var i = 0, s = 0; i < this.l; i++)
+    for(var j = 0; j < this.c; j++)
+    {
+      s = this.tab[i][j].className === cname ? s+1 : 0;
+      if(s === 2)
+      {
+        if(j+2 < this.c && this.tab[i][j+2].className === cname && this.tab[i][j+1].className === '')
+          if(i === 0 || this.tab[i-1][j+1].className)
+            return(j+1);
+          else if (column < 0 && (i === 1 || this.tab[i-2][j+1].className))
+            column = -(j+1) -1;
+        if(j-3 >= 0 && this.tab[i][j-3].className === cname && this.tab[i][j-2].className === '')
+          if(i === 0 || this.tab[i-1][j-2].className)
+            return(j-2);
+          else if (column < 0 && (i === 1 || this.tab[i-2][j-2].className))
+            column = -(j-2) -1;
+        if(column < 0 && j-2 >= 0 && j+1 < this.c)
+        {
+          if(i === 0 || this.tab[i-1][j-2].className)
+            if(this.tab[i][j-2].className === '' && this.tab[i][j+1].className === '')
+              column = j-2;
+          else if (i === 0 || this.tab[i-1][j+1].className)
+            if(this.tab[i][j+1].className === '' && this.tab[i][j-2].className === '')
+              column = j+1;
+        }
+      }
+      if(s === 3)
+      {
+        if(j+1 < this.c && this.tab[i][j+1].className === '')
+          if(i === 0 || this.tab[i-1][j+1].className)
+            return(j+1);
+          else if (column < 0  && (i === 1 || this.tab[i-2][j+1].className))
+            column = -(j+1) -1;
+        if(j-3 >= 0 && this.tab[i][j-3].className === '')
+          if(i === 0 || this.tab[i-1][j-3].className)
+            return(j-3);
+          else if (column < 0 && (i === 1 || this.tab[i-2][j-3].className))
+            column = -(j-3) -1;
+      }
+    }
+  for(var i = 0, s = 0; i < this.c; i++)
+    for(var j = 0; j < this.l; j++)
+      {
+        s = this.tab[j][i].className === cname ? s+1 : 0;
+        if(s === 3 && j+1 < this.l && this.tab[j+1][i].className === '')
+          return(i);
+      }
+
+  var row = 0, col = this.c-1;
+
+  while(row <= this.l-1)
+  {  
+    var difRowCol = row-col;
+    for(var i = Math.max(difRowCol, 0), s = 0; i < Math.min(this.l, this.c + difRowCol); i++)
+    {
+      s = this.tab[i][i-difRowCol].className === cname ? s+1 : 0;
+
+      if(s === 2)
+      {
+        if(i-difRowCol-3 >= 0 && i-3 >= 0 && this.tab[i-2][i-difRowCol-2].className === '' && this.tab[i-3][i-difRowCol-3].className === cname)
+          if(this.tab[i-3][i-difRowCol-2].className)
+            return(i-difRowCol-2);
+          else if (column < 0 && (i === 3 || this.tab[i-4][i-difRowCol-2].className))
+            column = -(i-difRowCol-2) -1;
+
+        if(i-difRowCol+2 < this.c && i+2 < this.l && this.tab[i+1][i-difRowCol+1].className === '' && this.tab[i+2][i-difRowCol+2].className === cname)
+            if(this.tab[i][i-difRowCol+1].className)
+              return(i-difRowCol+1);
+            else if (column < 0  && this.tab[i-1][i-difRowCol+1].className)
+              column = -(i-difRowCol+1) -1;
+      }
+      if(s === 3)
+      {
+        if(i > 2 && i-difRowCol > 2 && this.tab[i-3][i-difRowCol-3].className === '')
+            if(i-3 === 0 || this.tab[i-4][i-difRowCol-3].className)
+              return(i-difRowCol-3);
+            else if (column < 0 && (i === 4 || this.tab[i-5][i-difRowCol-3].className))
+              column = -(i-difRowCol-3) -1;
+
+        if(i < this.l-1 && i-difRowCol < this.c-1 && this.tab[i+1][i-difRowCol+1].className === '')
+          if(this.tab[i][i-difRowCol+1].className)
+            return(i-difRowCol+1);	
+          else if (column < 0 && this.tab[i-1][i-difRowCol+1].className)
+            column = -(i-difRowCol+1) -1;
+      }
+    }
+    if(col > 0)
+      col -= 1;
+    else
+      row += 1;
+  }
+
+  row = this.l-1, col = this.c-1;
+
+  while(col >= 0)
+  {
+    var somRowCol = row+col;
+    for(var i = Math.max(somRowCol - this.c + 1, 0), s = 0; i < Math.min(this.l, somRowCol + 1); i++)
+      {
+        s = this.tab[i][somRowCol-i].className === cname ? s+1 : 0;
+        if(s === 2)
+        {
+          if(somRowCol-i+3 < this.c && i-3 >= 0 && this.tab[i-2][somRowCol-i+2].className === '' && this.tab[i-3][somRowCol-i+3].className === cname)
+            if(this.tab[i-3][somRowCol-i+2].className)
+              return(somRowCol-i+2);
+            else if (column < 0 && (i === 3 || this.tab[i-4][somRowCol-i+2].className))
+              column = -(somRowCol-i+2) -1;
+
+          if(somRowCol-i-2 >= 0 && i+2 < this.l && this.tab[i+1][somRowCol-i-1].className === '' && this.tab[i+2][somRowCol-i-2].className === cname)
+            if(this.tab[i][somRowCol-i-1].className)
+              return(somRowCol-i-1);
+            else if (column < 0 && this.tab[i-1][somRowCol-i-1].className)
+              column = -(somRowCol-i-1) -1;
+        }
+        if(s === 3)
+        {
+          if(i > 2 && somRowCol-i < this.c-3 && this.tab[i-3][somRowCol-i+3].className === '')
+            if(i-3 === 0 || this.tab[i-4][somRowCol-i+3].className)
+              return(somRowCol-i+3);
+            else if (column < 0 && (i === 4 || this.tab[i-5][somRowCol-i+3].className))
+              column = -(somRowCol-i+3) -1;
+
+          if(i < this.l-1 && somRowCol-i > 0 && this.tab[i+1][somRowCol-i-1].className === '')
+            if(this.tab[i][somRowCol-i-1].className)
+              return(somRowCol-i-1);
+            else if (column < 0 && this.tab[i-1][somRowCol-i-1].className)
+              column = -(somRowCol-i-1) -1;
+        }
+      }
+    if(row > 0)
+      row -= 1;
+    else
+      col -= 1;
+  }
+  return column; 
+}
