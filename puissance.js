@@ -197,3 +197,4 @@ class Puissance4 {
   // On initialise le plateau et on visualise dans le DOM
   // (dans la balise d'identifiant `game`).
   let p4 = new Puissance4('#game'); 
+//   hello
