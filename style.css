@@ -1,3 +1,54 @@
+/************************ font *******************************/
+@font-face{
+    font-family: "Game_Time";
+    src: url(Game_Time.ttf);  
+}
+
+h1{
+    font-family: "Game_Time";
+}
+
+.player{
+    font-family: "Game_Time";
+    color:white;
+}
+/************************ header ****************************/
+header{
+    background-color:#d46d06;
+}
+
+.nav-link{
+    color:#08a0b8!important;
+}
+
+.nav-link:hover{
+    border-radius: 50% 20% / 10% 40%;
+    background-color:rgba(0,0,0,0.3)!important;
+}
+
+/************************* button ***************************/
+.btn{
+    background-color: #08a0b8;
+    color:#fdfdfc;
+    font-size: 18px;
+}
+
+/************************ footer ****************************/
+main{
+    /*background-color:rgba(29, 27, 25, 0.5);*/
+    background-image: url(media/bg-main.jpg);
+    background-size: cover;
+    background-position: center;
+}
+
+/************************ footer ****************************/
+footer{
+    background-color:#d46d06;
+    height: 75px;
+    color:#08a0b8;
+}
+
+/************************* board game **********************/
 #game table {
     border: 3px blue outset;
     background-color: blue;
