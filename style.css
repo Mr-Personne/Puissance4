@@ -4,9 +4,9 @@
 body {
 	font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    background: url('../rootprojet/media/Mashup-fond-ecran-geek-nerd-personnages-jeu-video-cartoon-background-sonic.jpg') no-repeat center;
+    background: url('../rootprojet/media/58671.jpg') no-repeat center;
     background-size: cover;
-    min-height: 100vh;
+    min-height: 130vh;
 }
 
 .container {
@@ -54,39 +54,6 @@ p {
     margin-top: -20px;
 }
 
-/*Nav*/
-.navbar-collapse {
-    font-size: 1.1rem;
-}
-
-.navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
-}
-.nav-link-table {
-    padding-right: 0 !important;
-}
-
-.bg-light {
-    background-color: #1B6B89!important;
-}
-
-.nav-active {
-    color: #2BB8C7!important;
-    font-weight: 700;
-}
-
-.navbar-brand {
-    font-family: 'Fontastique';
-    font-size: 1.8rem;
-}
-
-.navbar-light .navbar-toggler {
-    border-color: #FFFFFF;
-}
-.navbar-toggler:focus {
-    outline: none !important;
-}
 
 /*Contenu page*/
 .container-regles {
@@ -137,14 +104,7 @@ p {
     max-width: 800px;
 }
  
-/*Footer*/
-footer {
-    background-color: rgb(14, 55, 70);
-}
 
-.text-footer {
-    font-size: 0.8rem;
-}
 
 /*jeu*/
 .bloc {
