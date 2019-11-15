@@ -4,7 +4,7 @@
 body {
 	font-family: 'Open Sans', sans-serif;
     font-weight: 300;
-    background: url('../media/Mashup-fond-ecran-geek-nerd-personnages-jeu-video-cartoon-background-sonic.jpg') no-repeat center;
+    background: url('../rootprojet/media/Mashup-fond-ecran-geek-nerd-personnages-jeu-video-cartoon-background-sonic.jpg') no-repeat center;
     background-size: cover;
     min-height: 100vh;
 }
