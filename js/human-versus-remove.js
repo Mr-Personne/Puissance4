@@ -1,6 +1,17 @@
 var ligne6 = document.querySelectorAll(".ligne6 td");
 var trous = document.querySelectorAll("td");
 var tableau = [];
+var score=document.querySelector("p");
+var point=1
+var reset=document.querySelectorAll("td")
+var btnreset=document.querySelector(".reset")
+
+
+console.log(btnreset)
+sessionStorage.setItem('score',point)
+var stockage=sessionStorage.getItem('score',verifWin(1))
+
+score.innerText=stockage
 // var turn = 0;
 // console.log(trous);
 var player1 = true;
@@ -8,7 +19,7 @@ var jetonActif = "jeton-rouge";
 var index = 0;
 var JetonALaSuite = 0;
 var pseudo= "pseudo"
-point=1
+var point=0
 var ajoutJeton = function (event) {
     console.log("ajoutJeton");
     //si l'emplacement est déja pris
@@ -68,9 +79,9 @@ for (var i = 0; i < ligne6.length; i++) {
     // });
 }
 
-function verifWin() {
+function verifWin(point) {
     var tableau = [];
-
+    
     for (var i = 0; i < trous.length; i++) {
         tableau.push(trous[i]);
     }
@@ -91,11 +102,17 @@ function verifWin() {
                     JetonALaSuite++;
                 }
             }
-            if (JetonALaSuite == 4  ) {
+            if (JetonALaSuite == 4 ) {
                 alert("winner is you");
-                var score=document.querySelector("p")
-               score.innerText=point
-              point++
+                var score=document.querySelector("p");
+              point=1
+              score.innerText=point
+              
+            
+               
+               
+        
+              
             }
         }
 
@@ -142,8 +159,21 @@ function addOnTop(event) {
     nextPos[cellRowIndex].classList = jetonActif;
 }
 
-function test() {
+var reset = function (event) {
     console.log("test");
+
 }
-
-
+// var reset=document.querySelectorAll("td")
+// for(items of trous ){
+//     var restart=document.querySelectorAll("td")
+//     console.log(items.classList)
+//     restart.style.backgroundColor='white'
+//   }
+btnreset.addEventListener("click", ()=>{
+  console.log('lol')
+ var x= document.querySelectorAll('td')
+ 
+  for(items of x){
+    items.classList.remove('jeton-rouge' , 'jeton-jaune');
+  }
+});
