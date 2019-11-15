@@ -77,24 +77,45 @@ function verifWin() {
 
     for (var j = 0; j < tableau.length; j++) {
         // tableau.push(trous[i]);
-        if (tableau[j].classList == "jeton-rouge") {
-            JetonALaSuite++;
-            console.log("tableau class", JetonALaSuite);
-            //faire une autre boucle de 4 pour verif si 4 a la suite
-            for (var k = 1; k < 4; k++) {
-                console.log("tableau[j + k]",tableau[j + k])
-                if (tableau[j + k].classList == undefined) {
-                    console.log("undefined");
-                    return;
-                }
-                else if (tableau[j + k].classList == "jeton-rouge") {
-                    JetonALaSuite++;
-                }
-            }
-            if (JetonALaSuite == 4) {
-                alert("winner is you");
-            }
+
+        // //verif des jetons rouges a la suite horizontale gauche droite
+        // if (tableau[j].classList == "jeton-rouge") {
+
+        //     console.log("tableau class", JetonALaSuite);
+        //     //faire une autre boucle de 4 pour verif si 4 a la suite
+        //     for (var k = 0; k <= 4; k++) {
+        //         // console.log("tableau[j + k]",tableau[j + k]);
+        //         // console.log("undefined test",tableau[j + k].classList);
+        //         if (tableau[j + k].classList.value == "jeton-rouge") {
+        //             console.log("[j + k] ==", j ," ",k);
+        //             console.log("tableau[j + k] ==", tableau[j + k]);
+        //             JetonALaSuite++;
+        //             console.log("jetonsuite", JetonALaSuite);
+        //         }
+        //         // else if (tableau[j + k].classList.value == "" || tableau[j + k].classList == undefined) {
+        //         //     console.log("undefined");
+        //         //     break;
+        //         // }
+        //     }
+        //     if (JetonALaSuite == 4) {
+        //         alert("winner is you");
+        //     }
+        // }
+        console.log("tableau[j]+123 ", tableau[j], tableau[j + 1], tableau[j + 2], tableau[j + 3])
+        //verif des jetons rouges a la suite horizontale gauche droite
+        if (tableau[j].classList == "jeton-rouge" && tableau[j + 1].classList == "jeton-rouge"
+            && tableau[j + 2].classList == "jeton-rouge" && tableau[j + 3].classList == "jeton-rouge") {
+
+            alert("winner is red");
+
         }
+        if (tableau[j].classList == "jeton-yellow" && tableau[j + 1].classList == "jeton-yellow"
+            && tableau[j + 2].classList == "jeton-yellow" && tableau[j + 3].classList == "jeton-yellow") {
+
+            alert("winner is yellow");
+
+        }
+
 
     }
     console.log("test tableau ");
