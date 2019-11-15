@@ -28,11 +28,11 @@ var ajoutJeton = function (event) {
         }
 
         event.target.classList = jetonActif;
-        makeTopClickable(event)
+        makeTopClickable(event);
     }
     console.log(" player1 ", player1);
 
-    verifWin()
+    verifWin(event);
 }
 
 for (var i = 0; i < ligne6.length; i++) {
@@ -68,7 +68,75 @@ for (var i = 0; i < ligne6.length; i++) {
     // });
 }
 
-function verifWin() {
+// var rowNum = 6;
+//verif suite horizontale
+function verifHorizontale(event) {
+    // if (rowNum == undefined) {
+    //     var num = 6
+    //     console.log("num : ", num);
+    // }
+    // else {
+    //     var num = rowNum;
+    //     console.log("num : ", num);
+    // }
+
+    var ligne6 = document.querySelectorAll(".ligne6 td");
+    var ligne5 = document.querySelectorAll(".ligne5 td");
+    var ligne4 = document.querySelectorAll(".ligne4 td");
+    var ligne3 = document.querySelectorAll(".ligne3 td");
+    var ligne2 = document.querySelectorAll(".ligne2 td");
+    var ligne1 = document.querySelectorAll(".ligne1 td");
+    var lignesArray = [ligne6,ligne5,ligne4,ligne3,ligne2,ligne1];
+
+    var rowNum = event.target.parentElement;
+    // console.log("lignes :  ", ligne6, ligne5, ligne4, ligne3, ligne2, ligne1);
+    // var currentRow = document.querySelectorAll(".ligne" + 6 + " td");
+
+    for (var i = 0; i < 6; i++) {
+        // currentRow = document.querySelectorAll(".ligne" + i + " td");
+        var currentRow = lignesArray[i];
+        
+        console.log("current row ", currentRow);
+        for (var j = 0; j < 7; j++) {
+            if (currentRow[j].classList == "jeton-rouge" && currentRow[j + 1].classList == "jeton-rouge"
+                && currentRow[j + 2].classList == "jeton-rouge" && currentRow[j + 3].classList == "jeton-rouge") {
+
+                alert("winner is red");
+
+            }
+            else if (currentRow[j].classList == "jeton-jaune" && currentRow[j + 1].classList == "jeton-jaune"
+                && currentRow[j + 2].classList == "jeton-jaune" && currentRow[j + 3].classList == "jeton-jaune") {
+
+                alert("winner is yellow");
+
+            }
+        }
+    }
+
+    // for (var i = 0; i < currentRow.length; i++) {
+    //     // console.log("currentRow[i]+123 ", currentRow[i], currentRow[i + 1], currentRow[i + 2], currentRow[i + 3])
+    //     //verif des jetons rouges a la suite horizontale gauche droite
+    //     if (currentRow[i].classList == "jeton-rouge" && currentRow[i + 1].classList == "jeton-rouge"
+    //         && currentRow[i + 2].classList == "jeton-rouge" && currentRow[i + 3].classList == "jeton-rouge") {
+
+    //         alert("winner is red");
+
+    //     }
+    //     else if (currentRow[i].classList == "jeton-jaune" && currentRow[i + 1].classList == "jeton-jaune"
+    //         && currentRow[i + 2].classList == "jeton-jaune" && currentRow[i + 3].classList == "jeton-jaune") {
+
+    //         alert("winner is yellow");
+
+    //     }
+    // }
+
+
+
+}
+//verif suite verticale
+
+//verif suite diagonale "//" (gauche à droite)
+function verifDiagonaleGaucheDroite() {
     var tableau = [];
 
     for (var i = 0; i < trous.length; i++) {
@@ -120,6 +188,13 @@ function verifWin() {
     }
     console.log("test tableau ");
     // console.log("tableau ", tableau)
+}
+//verif suite digonale "\\"  (droite à gauche)
+
+
+
+function verifWin(event) {
+    verifHorizontale(event);
 }
 
 
