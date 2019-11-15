@@ -4,4 +4,10 @@ main{
     background-image: url(media/bg-main.jpg);
     background-size: cover;
     background-position: center;
+
+    .btn{
+        background-color: $blue;
+        color:#fdfdfc;
+        font-size: 18px;
+    }
 }
