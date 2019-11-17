@@ -43,7 +43,7 @@ var ajoutJeton = function (event) {
 //initialise la première ligne/la rend clickable
 //!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!!
 for (var i = 0; i < ligne6.length; i++) {
-    console.log("ajoutJeton");
+    // console.log("ajoutJeton");
     ligne6[i].addEventListener("click", ajoutJeton);
 }
 
@@ -292,7 +292,9 @@ function makeTopClickable(event) {
 }
 
 
-
+//IA SECTION BELOW---------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------
+//------------------------------------------------------------------------------------------------------
 
 
 function tourIA(event) {
@@ -312,51 +314,53 @@ function tourIA(event) {
     if (jetonJoué !== true) {
         jetonJoué = IAVerifHorizontale();
     }
-    console.log("IAVerifHorizontale", jetonJoué);
+    console.log("ia jeton joué", jetonJoué);
     //section 'while' pour l'ia basique
-    while (jetonJoué !== true) {
-        indexAléatoire = Math.floor(Math.random() * 7);
-        console.log("indexrandom : ", indexAléatoire);
+    // iaBasiqueLignes(jetonJoué, indexAléatoire, num, nbrPlaceLibre, lignesArray);
+    iaBasiqueCol(jetonJoué, indexAléatoire, num, nbrPlaceLibre, lignesArray);
+    // while (jetonJoué !== true) {
+    //     indexAléatoire = Math.floor(Math.random() * 7);
+    //     console.log("indexrandom : ", indexAléatoire);
 
-        currentRow = lignesArray[num];
+    //     currentRow = lignesArray[num];
 
-        //boucle qui verif si il reste de la place sur une ligne
-        for (var i = 0; i < currentRow.length; i++) {
-            if (currentRow[i].classList[1] !== "jeton-rouge" && currentRow[i].classList[1] !== "jeton-jaune") {
-                nbrPlaceLibre++;
-            }
-        }
-        //si il y a plus de place, changer de ligne (si on est pas sur la derniere)
-        if (nbrPlaceLibre == 0 && currentRow.classList == "ligne1") {
-            console.log("gameover, il y a plus de place");
-        }
-        else if (nbrPlaceLibre == 0 && currentRow.classList !== "ligne1") {
-            console.log("plus de place sur cette ligne : ", currentRow);
-            num++;
-            currentRow = lignesArray[num];
-            console.log("IA go sur cette ligne : ", currentRow);
-        }
-        else {
-            //verif si l'indexAleatoire est bien un emplacement vide (sans classe jeton)
-            console.log("verif si l'indexAleatoire est bien un emplacement vide : ", currentRow[indexAléatoire].classList[1]
-                , " class length ", currentRow[indexAléatoire].classList.length);
-            if (currentRow[indexAléatoire].classList.length == 1) {
-                //si oui, place le jeton
-                currentRow[indexAléatoire].classList.add("jeton-jaune");
-                //rend la case du dessus clickable
-                lignesArray[num + 1][indexAléatoire].addEventListener("click", ajoutJeton);
-                //transmet l'info que le jeton vient d'etre placé pour qu'il arrete de chercher (arrete le while loop)
-                jetonJoué = true;
-                console.log("jeton placé IA bipboop");
-                //reset les variables pour ... ou pas?
-                //redonne la main au player1
-                player1 = true;
-            }
-        }
+    //     //boucle qui verif si il reste de la place sur une ligne
+    //     for (var i = 0; i < currentRow.length; i++) {
+    //         if (currentRow[i].classList[1] !== "jeton-rouge" && currentRow[i].classList[1] !== "jeton-jaune") {
+    //             nbrPlaceLibre++;
+    //         }
+    //     }
+    //     //si il y a plus de place, changer de ligne (si on est pas sur la derniere)
+    //     if (nbrPlaceLibre == 0 && currentRow.classList == "ligne1") {
+    //         console.log("gameover, il y a plus de place");
+    //     }
+    //     else if (nbrPlaceLibre == 0 && currentRow.classList !== "ligne1") {
+    //         console.log("plus de place sur cette ligne : ", currentRow);
+    //         num++;
+    //         currentRow = lignesArray[num];
+    //         console.log("IA go sur cette ligne : ", currentRow);
+    //     }
+    //     else {
+    //         //verif si l'indexAleatoire est bien un emplacement vide (sans classe jeton)
+    //         console.log("verif si l'indexAleatoire est bien un emplacement vide : ", currentRow[indexAléatoire].classList[1]
+    //             , " class length ", currentRow[indexAléatoire].classList.length);
+    //         if (currentRow[indexAléatoire].classList.length == 1) {
+    //             //si oui, place le jeton
+    //             currentRow[indexAléatoire].classList.add("jeton-jaune");
+    //             //rend la case du dessus clickable
+    //             lignesArray[num + 1][indexAléatoire].addEventListener("click", ajoutJeton);
+    //             //transmet l'info que le jeton vient d'etre placé pour qu'il arrete de chercher (arrete le while loop)
+    //             jetonJoué = true;
+    //             console.log("jeton placé IA bipboop");
+    //             //reset les variables pour ... ou pas?
+    //             //redonne la main au player1
+    //             player1 = true;
+    //         }
+    //     }
 
 
 
-    }
+    // }
 }
 
 
@@ -372,17 +376,60 @@ function IAVerifHorizontale(event) {
     var lignesArray = [ligne6, ligne5, ligne4, ligne3, ligne2, ligne1];
 
 
-    // première boucle qui nous permet de sélectionner chaques ligne contenu dans 'lignesArray'
-    for (var i = 0; i < 6; i++) {
+    var currentRow = lignesArray[0];
+    //boucle  qui nous permet de sélectionner chaques cases contenu dans 'ligne6'
+    for (var j = 0; j < 4; j++) {
+        if (currentRow[j].classList[1] == "jeton-jaune" && currentRow[j + 1].classList[1] == "jeton-jaune"
+            && currentRow[j + 2].classList[1] == "jeton-jaune" && currentRow[j + 3].classList.length == 1) {
 
-        var currentRow = lignesArray[i];
+            currentRow[j + 3].classList.add("jeton-jaune");
+            //transmet l'info que le jeton vient d'etre placé pour qu'il arrete de chercher (arrete le while loop)
+            jetonJoué = true;
+            console.log("jeton placé IA bipboop");
+            //reset les variables pour ... ou pas?
+            //redonne la main au player1
+            player1 = true;
+            console.log("hAhA, I win");
+            return jetonJoué;
+
+        }
+        else if (currentRow[j].classList[1] == "jeton-rouge" && currentRow[j + 1].classList[1] == "jeton-rouge"
+            && currentRow[j + 2].classList[1] == "jeton-rouge" && currentRow[j + 3].classList.length == 1) {
+
+            // console.log("ALMOST blocked you red");
+            currentRow[j + 3].classList.add("jeton-jaune");
+            //rend la case du dessus clickable si il y a de la place
+            // console.log("query colonnesArray[i].parentElement : ", document.querySelector(".ligne"+j),j);
+            if (document.querySelector(".ligne5").classList.value != "ligne1") {
+                console.log("il reste de la place en haut, addeventlistener");
+                lignesArray[1][j + 3].addEventListener("click", ajoutJeton);
+            }
+            //transmet l'info que le jeton vient d'etre placé pour qu'il arrete de chercher (arrete le while loop)
+            jetonJoué = true;
+            console.log("jeton placé IA bipboop");
+            //reset les variables pour ... ou pas?
+            //redonne la main au player1
+            player1 = true;
+            console.log("blocked you red");
+            return jetonJoué;
+        }
+    }
+
+    // boucle qui nous permet de sélectionner chaques ligne contenu dans 'lignesArray'
+    for (var i = 1; i < lignesArray.length; i++) {
+
+        currentRow = lignesArray[i];
         // console.log("current row ", currentRow);
+        // console.log("lignesArray[i] ", lignesArray[i]);
 
-        // deuxieme boucle qui selectionne chaque case de la liste précédement selectionné
+        // boucle qui selectionne chaque case de : ligne5, ligne4, ligne3, ligne2, ligne1
         for (var j = 0; j < 4; j++) {
             // console.log(currentRow[j]);
-            if (currentRow[j].classList[1] == "jeton-jaune" && currentRow[j + 1].classList[1] == "jeton-jaune"
-                && currentRow[j + 2].classList[1] == "jeton-jaune" && currentRow[j + 3].classList.length == 1) {
+            //si il detect plusieus jeton rouge avec un jeton dans la row en dessous
+            if (currentRow[j].classList[1] == "jeton-jaune" && lignesArray[i - 1][j].classList.length == 2
+                && currentRow[j + 1].classList[1] == "jeton-jaune" && lignesArray[i - 1][j + 1].classList.length == 2
+                && currentRow[j + 2].classList[1] == "jeton-jaune" && lignesArray[i - 1][j + 2].classList.length == 2
+                && currentRow[j + 3].classList.length == 1 && lignesArray[i - 1][j + 3].classList.length == 2) {
 
                 currentRow[j + 3].classList.add("jeton-jaune");
                 //transmet l'info que le jeton vient d'etre placé pour qu'il arrete de chercher (arrete le while loop)
@@ -395,10 +442,12 @@ function IAVerifHorizontale(event) {
                 return jetonJoué;
 
             }
-            else if (currentRow[j].classList[1] == "jeton-rouge" && currentRow[j + 1].classList[1] == "jeton-rouge"
-                && currentRow[j + 2].classList[1] == "jeton-rouge" && currentRow[j + 3].classList.length == 1) {
+            else if (currentRow[j].classList[1] == "jeton-rouge" && lignesArray[i - 1][j].classList.length == 2
+                && currentRow[j + 1].classList[1] == "jeton-rouge" && lignesArray[i - 1][j + 1].classList.length == 2
+                && currentRow[j + 2].classList[1] == "jeton-rouge" && lignesArray[i - 1][j + 2].classList.length == 2
+                && currentRow[j + 3].classList.length == 1 && lignesArray[i - 1][j + 3].classList.length == 2) {
 
-                console.log("ALMOST fuck you red");
+                console.log("ALMOST blocked you red");
                 currentRow[j + 3].classList.add("jeton-jaune");
                 //rend la case du dessus clickable si il y a de la place
                 // console.log("query colonnesArray[i].parentElement : ", document.querySelector(".ligne"+j),j);
@@ -412,7 +461,7 @@ function IAVerifHorizontale(event) {
                 //reset les variables pour ... ou pas?
                 //redonne la main au player1
                 player1 = true;
-                console.log("fuck you red");
+                console.log("blocked you red");
                 return jetonJoué;
             }
         }
@@ -473,7 +522,7 @@ function IAVerifVerticale(event) {
                 //reset les variables pour ... ou pas?
                 //redonne la main au player1
                 player1 = true;
-                console.log("fuck you red");
+                console.log("blocked you red");
                 return jetonJoué;
             }
         }
@@ -481,3 +530,127 @@ function IAVerifVerticale(event) {
 
 }
 
+
+//ia placement random par colonne
+function iaBasiqueCol(jetonJoué, indexAléatoire, num, nbrPlaceLibre, lignesArray) {
+    while (jetonJoué !== true) {
+        indexAléatoire = Math.floor(Math.random() * 7);
+        console.log("indexrandom : ", indexAléatoire);
+
+
+        console.log("num : ", num);
+        currentRow = lignesArray[num];
+        console.log("currentRow : ", currentRow);
+
+        console.log("currentRow[indexAléatoire] ", currentRow[indexAléatoire])
+        //si la position aleatoire se trouve sur un emplacement rouge
+        while (currentRow[indexAléatoire].classList.length == 2) {
+            console.log("INNER currentRow[indexAléatoire] ", currentRow[indexAléatoire])
+            //si la position aleatoire se trouve sur la dernière ligne en haut
+            if (num == 5) {
+                // boucle qui verif si il reste de la place sur la ligne
+                for (var i = 0; i < currentRow.length; i++) {
+                    if (currentRow[i].classList[1] !== "jeton-rouge" && currentRow[i].classList[1] !== "jeton-jaune") {
+                        nbrPlaceLibre++;
+                    }
+                }
+                if (nbrPlaceLibre == 0) {
+                    alert("gameover man, no space left");
+                    break;
+                }
+                else {
+                    //si le jeux n'est pas bloqué, alors il reste forcément une place ailleur (donc re fait random)
+                    indexAléatoire = Math.floor(Math.random() * 7);
+                    console.log("reroll indexrandom : ", indexAléatoire);
+                    num = 0;
+                    console.log("reroll num : ", num);
+                    currentRow = lignesArray[num];
+                    console.log("currentRow after ++", currentRow);
+                }
+
+            }
+            else {
+                //augement position de currentRow a la row du dessus
+                num++;
+                console.log("num++ ", num);
+                currentRow = lignesArray[num];
+                console.log("currentRow after ++", currentRow);
+            }
+        }
+
+
+
+        //verif si l'indexAleatoire est bien un emplacement vide (sans classe jeton)
+        console.log("verif si l'indexAleatoire est bien un emplacement vide : ", currentRow[indexAléatoire].classList[1]
+            , " class length ", currentRow[indexAléatoire].classList.length);
+        if (currentRow[indexAléatoire].classList.length == 1) {
+            //si oui, place le jeton
+            currentRow[indexAléatoire].classList.add("jeton-jaune");
+            //rend la case du dessus clickable
+            // console.log("lignesArray[",num ,"+ 1][",indexAléatoire,"]", lignesArray[num + 1][indexAléatoire])
+            //verifie si la nouvelle emplacement clickable au dessus ne dépasse pas du tableau
+            if (num + 1 <= 5) {
+                console.log("lignesArray[num] : ", lignesArray[num]);
+                console.log(" lignesArray[num + 1][indexAléatoire] ", lignesArray[num + 1][indexAléatoire]);
+                lignesArray[num + 1][indexAléatoire].addEventListener("click", ajoutJeton);
+            }
+            //transmet l'info que le jeton vient d'etre placé pour qu'il arrete de chercher (arrete le while loop)
+            jetonJoué = true;
+            console.log("jeton placé IA basique col bipboop");
+            //reset les variables pour ... ou pas?
+            //redonne la main au player1
+            player1 = true;
+        }
+
+
+
+    }
+}
+
+
+//ia placement random par colonne
+function iaBasiqueLignes(jetonJoué, indexAléatoire, num, nbrPlaceLibre, lignesArray) {
+    while (jetonJoué !== true) {
+        indexAléatoire = Math.floor(Math.random() * 7);
+        console.log("indexrandom : ", indexAléatoire);
+
+        currentRow = lignesArray[num];
+
+        //boucle qui verif si il reste de la place sur une ligne
+        for (var i = 0; i < currentRow.length; i++) {
+            if (currentRow[i].classList[1] !== "jeton-rouge" && currentRow[i].classList[1] !== "jeton-jaune") {
+                nbrPlaceLibre++;
+            }
+        }
+        //si il y a plus de place, changer de ligne (si on est pas sur la derniere)
+        if (nbrPlaceLibre == 0 && currentRow.classList == "ligne1") {
+            console.log("gameover, il y a plus de place");
+        }
+        else if (nbrPlaceLibre == 0 && currentRow.classList !== "ligne1") {
+            console.log("plus de place sur cette ligne : ", currentRow);
+            num++;
+            currentRow = lignesArray[num];
+            console.log("IA go sur cette ligne : ", currentRow);
+        }
+        else {
+            //verif si l'indexAleatoire est bien un emplacement vide (sans classe jeton)
+            console.log("verif si l'indexAleatoire est bien un emplacement vide : ", currentRow[indexAléatoire].classList[1]
+                , " class length ", currentRow[indexAléatoire].classList.length);
+            if (currentRow[indexAléatoire].classList.length == 1) {
+                //si oui, place le jeton
+                currentRow[indexAléatoire].classList.add("jeton-jaune");
+                //rend la case du dessus clickable
+                lignesArray[num + 1][indexAléatoire].addEventListener("click", ajoutJeton);
+                //transmet l'info que le jeton vient d'etre placé pour qu'il arrete de chercher (arrete le while loop)
+                jetonJoué = true;
+                console.log("jeton placé IA bipboop");
+                //reset les variables pour ... ou pas?
+                //redonne la main au player1
+                player1 = true;
+            }
+        }
+
+
+
+    }
+}
