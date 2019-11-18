@@ -9,6 +9,25 @@ var index = 0;
 var JetonALaSuite = 0;
 
 
+//fonction qui change couleur de l'indicateur du joueur actif
+function changeJoueurIndicateur(){
+    
+    var indicateurJ1 = document.querySelector("#indicateur-j1");
+    var indicateurJ2 = document.querySelector("#indicateur-j2");
+    // console.log("début indication ",indicateur);
+    if (player1 == false){
+        indicateurJ1.classList = "d-none";
+        indicateurJ2.classList = "d-block";
+        console.log("c'est le tour de J2");
+    }
+    else if (player1 == true){
+        indicateurJ2.classList = "d-none";
+        indicateurJ1.classList = "d-block";
+        console.log("c'est le tour de J1");
+    }
+};
+
+
 var ajoutJeton = function (event) {
     // console.log("ajoutJeton");
     //si l'emplacement est déja pris ou le tour en cour est celui de l'ia:
@@ -30,7 +49,7 @@ var ajoutJeton = function (event) {
             player1 = false;
         }
 
-
+        changeJoueurIndicateur()
         setTimeout(function () {
             var jetonJoué = false;
             var indexAléatoire, num = 0, nbrPlaceLibre = 0;
@@ -50,6 +69,7 @@ var ajoutJeton = function (event) {
             // iaBasiqueLignes(jetonJoué, indexAléatoire, num, nbrPlaceLibre, lignesArray);
             iaBasiqueCol(jetonJoué, indexAléatoire, num, nbrPlaceLibre, lignesArray);
             verifWin(event);
+            changeJoueurIndicateur();
         }, 700);
         // tourIA(event);
         // fonction qui vérifie si il y a des / une suite(s) gagnant pour IA
