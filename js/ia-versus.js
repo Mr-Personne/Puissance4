@@ -29,10 +29,10 @@ var ajoutJeton = function (event) {
             player1 = false;
         }
 
-
+        // setTimeout(function(){ alert("Hello"); }, 3000);
         tourIA(event);
         // fonction qui vérifie si il y a des / une suite(s) gagnant pour IA
-        verifWin(event);
+        verifWin(event, 3000);
 
     }
     console.log(" player1 ", player1);
