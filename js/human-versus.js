@@ -7,6 +7,7 @@ var player1 = true;
 var jetonActif = "jeton-rouge";
 var index = 0;
 var JetonALaSuite = 0;
+//test
 
 //fonction qui change couleur de l'indicateur du joueur actif
 function changeJoueurIndicateur(){
