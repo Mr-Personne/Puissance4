@@ -60,12 +60,12 @@ header .nav-link:hover {
   cursor: pointer;
 }
 
-#game td.player1 {
-  background-color: #d56e07;
+.jeton-rouge {
+  background-color: #d56e07 !important;
 }
 
-#game td.player2 {
-  background-color: #08a0b8;
+.jeton-jaune {
+  background-color: #08a0b8 !important;
 }
 
 footer {
