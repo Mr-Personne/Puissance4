@@ -7,7 +7,7 @@
     font-weight: 300;
     background: url('../rootprojet/media/58671-[Converti].png') no-repeat center;
     background-size: cover;
-    min-height: 70vh;
+    min-height: 150vh;
 }
 /*Textes*/
 .text-victoire-defaite {
@@ -20,6 +20,8 @@
     padding-bottom: 40px;
     margin-top: -20px;
 }
+/*Contenu page*/
+
 /*Boutons*/
 .btn-lien {
     border-radius: 50px;
@@ -131,3 +133,48 @@ h1 {
       transition: none !important;
     }
 }
+@media (max-width: 767px) { 
+    .h2-0-100, .h2-pro-maths {
+        padding-top: 50px;
+    }
+    .h2-page-regle {
+        padding-top: 0;
+    }
+    .text-victoire-defaite {
+        font-size: 3rem;
+    }
+    .text-bravo-dommage {
+        font-size: 1rem;
+    }
+    .titre-jeu {
+        margin-top: -30px;
+    }
+}
+@media (max-width: 350px) { 
+    .text-victoire-defaite {
+        font-size: 2.5rem;
+    }
+}
+@media (max-width: 767px) { 
+    .h2-0-100, .h2-pro-maths {
+        padding-top: 50px;
+    }
+    .h2-page-regle {
+        padding-top: 0;
+    }
+    .text-victoire-defaite {
+        font-size: 3rem;
+    }
+    .text-bravo-dommage {
+        font-size: 1rem;
+    }
+    .titre-jeu {
+        margin-top: -30px;
+    }
+}
+@media (max-width: 350px) { 
+    .text-victoire-defaite {
+        font-size: 2.5rem;
+    }
+}
+
