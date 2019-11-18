@@ -8,9 +8,24 @@ var jetonActif = "jeton-rouge";
 var index = 0;
 var JetonALaSuite = 0;
 
+//fonction qui change couleur de l'indicateur du joueur actif
+function changeJoueurIndicateur(){
+    
+    var indicateur = document.querySelector("#indicateur");
+    console.log("début indication ",indicateur);
+    if (player1 == false){
+        indicateur.classList = "jeton-jaune";
+        console.log("player1 false jaune indication");
+    }
+    else if (player1 == true){
+        indicateur.classList = "jeton-rouge";
+        console.log("player1 true rouge indication");
+    }
+};
 
 var ajoutJeton = function (event) {
     // console.log("ajoutJeton");
+    
     //si l'emplacement est déja pris :
     if (event.target.classList[1] == "jeton-rouge" || event.target.classList[1] == "jeton-jaune") {
         console.log("not free space, go up");
@@ -37,6 +52,10 @@ var ajoutJeton = function (event) {
     console.log(" player1 ", player1);
     // fonction qui vérifie si il y a des/une suite(s) gagnant
     verifWin(event);
+
+    //fonction qui permet de montrer/changer la couleur du joueur actif
+    //penser a changer le queryselecteur de l'element a changer
+    // changeJoueurIndicateur();
 }
 
 //initialise la première ligne/la rend clickable
@@ -72,12 +91,16 @@ function verifHorizontale(event) {
                 && currentRow[j + 2].classList[1] == "jeton-rouge" && currentRow[j + 3].classList[1] == "jeton-rouge") {
 
                 alert("winner is red");
+                // window.location = "http://www.mozilla.org";
+                reset();
 
             }
             else if (currentRow[j].classList[1] == "jeton-jaune" && currentRow[j + 1].classList[1] == "jeton-jaune"
                 && currentRow[j + 2].classList[1] == "jeton-jaune" && currentRow[j + 3].classList[1] == "jeton-jaune") {
 
                 alert("winner is yellow");
+                // window.location = "http://www.mozilla.org";
+                reset();
 
             }
         }
@@ -112,12 +135,16 @@ function verifVerticale(event) {
                 && currentCol[j + 2].classList[1] == "jeton-rouge" && currentCol[j + 3].classList[1] == "jeton-rouge") {
 
                 alert("winner is red");
+                // window.location = "http://www.mozilla.org";
+                reset();
 
             }
             else if (currentCol[j].classList[1] == "jeton-jaune" && currentCol[j + 1].classList[1] == "jeton-jaune"
                 && currentCol[j + 2].classList[1] == "jeton-jaune" && currentCol[j + 3].classList[1] == "jeton-jaune") {
 
                 alert("winner is yellow");
+                // window.location = "http://www.mozilla.org";
+                reset();
 
             }
         }
@@ -149,6 +176,7 @@ function verifDiagonaleGaucheDroite(event) {
             if (currentRow[j].classList[1] == "jeton-rouge") {
                 // console.log("currentRow 1: ", currentRow);
                 currentRow = lignesArray[i + 1];
+                //currentRow = lignesArray[i + j];
 
                 if (currentRow[j + 1].classList[1] == "jeton-rouge") {
                     // console.log("currentRow 2: ", currentRow);
@@ -161,6 +189,8 @@ function verifDiagonaleGaucheDroite(event) {
                         if (currentRow[j + 3].classList[1] == "jeton-rouge") {
                             // console.log("currentRow 4: ", currentRow);
                             alert("winner is rouge");
+                            // window.location = "http://www.mozilla.org";
+                            reset();
                         }
 
                     }
@@ -184,6 +214,8 @@ function verifDiagonaleGaucheDroite(event) {
                         if (currentRow[j + 3].classList[1] == "jeton-jaune") {
                             // console.log("currentRow 4: ", currentRow);
                             alert("winner is jaune");
+                            // window.location = "http://www.mozilla.org";
+                            reset();
                         }
 
                     }
@@ -217,7 +249,7 @@ function verifDiagonaleDroiteGauche(event) {
 
         // deuxieme boucle qui selectionne chaque case de la liste précédement selectionné
         //commence à la droite de la row et selectionne 4 cases de droite a gauche
-        for (var j = currentRow.length-1; j > 2; j--) {
+        for (var j = currentRow.length - 1; j > 2; j--) {
             if (currentRow[j].classList[1] == "jeton-rouge") {
                 console.log("currentRow 1: ", currentRow);
                 currentRow = lignesArray[i + 1];
@@ -233,6 +265,8 @@ function verifDiagonaleDroiteGauche(event) {
                         if (currentRow[j - 3].classList[1] == "jeton-rouge") {
                             console.log("currentRow 4: ", currentRow);
                             alert("winner is rouge");
+                            // window.location = "http://www.mozilla.org";
+                            reset();
                         }
 
                     }
@@ -256,6 +290,8 @@ function verifDiagonaleDroiteGauche(event) {
                         if (currentRow[j - 3].classList[1] == "jeton-jaune") {
                             console.log("currentRow 4: ", currentRow);
                             alert("winner is jaune");
+                            // window.location = "http://www.mozilla.org";
+                            reset();
                         }
 
                     }
@@ -293,33 +329,43 @@ function makeTopClickable(event) {
 
 
 
+//SECTION RESET----------------------------------------------------------------------
+// --------------------------------------------------------------------------------------
+var reset = function (event) {
+    var x = document.querySelectorAll('td')
+    console.log('avant lol', x)
 
-//not used for now (or ever...?)
-// function addOnTop(event) {
-//     //trouve la prochaine row (a utiliser si on click sur un emplacement pris)
-//     //et créer une array de td de la row au dessus de celle clické
-//     var nextPos = event.target.parentElement.previousElementSibling.querySelectorAll("td");
-//     //trouve l'index position de la case clické
-//     var cellRowIndex = event.target.cellIndex;
-//     // console.log("index =", nextPos);
-//     // console.log("event ", event);
-//     // console.log("current jeton: ", event.target.classList.value);
-//     console.log("next available pos at : ", nextPos[cellRowIndex]);
+    for (items of x) {
+        items.classList.remove('jeton-rouge', 'jeton-jaune');
+        items.removeEventListener("click", ajoutJeton);
+    }
+    console.log('apres lol', x)
+    player1 = true;
+    for (var i = 0; i < ligne6.length; i++) {
+        console.log("ajoutJeton");
+        ligne6[i].addEventListener("click", ajoutJeton);
+    }
+    changeJoueurIndicateur();
 
-//     //use below if you want it to try and put a jeton on top automaticaly
-//     if (player1 == true) {
-//         jetonActif = "jeton-rouge";
-//         player1 = false;
+}
+
+
+//addeventlistener pour bouton (pour testes)
+/////////////////////////////////////////////////////
+// var btnreset = document.querySelector("#reset-btn");
+
+// btnreset.addEventListener("click", reset);
+
+
+
+// btnreset.addEventListener("click", () => {
+
+//     var x = document.querySelectorAll('td')
+//     console.log('avant lol', x)
+
+//     for (items of x) {
+//         items.classList.remove('jeton-rouge', 'jeton-jaune');
 //     }
-//     else if (player1 == false) {
-//         jetonActif = "jeton-jaune";
-//         player1 = true;
-//     }
-//     nextPos[cellRowIndex].classList = jetonActif;
-// }
-
-// function test() {
-//     console.log("test");
-// }
-
-
+//     console.log('apres lol', x)
+//     player1 = true;
+// });
