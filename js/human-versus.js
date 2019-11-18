@@ -12,15 +12,18 @@ var JetonALaSuite = 0;
 //fonction qui change couleur de l'indicateur du joueur actif
 function changeJoueurIndicateur(){
     
-    var indicateur = document.querySelector("#indicateur");
-    console.log("début indication ",indicateur);
+    var indicateurJ1 = document.querySelector("#indicateur-j1");
+    var indicateurJ2 = document.querySelector("#indicateur-j2");
+    // console.log("début indication ",indicateur);
     if (player1 == false){
-        indicateur.classList = "jeton-jaune";
-        console.log("player1 false jaune indication");
+        indicateurJ1.classList = "d-none";
+        indicateurJ2.classList = "d-block";
+        console.log("c'est le tour de J2");
     }
     else if (player1 == true){
-        indicateur.classList = "jeton-rouge";
-        console.log("player1 true rouge indication");
+        indicateurJ2.classList = "d-none";
+        indicateurJ1.classList = "d-block";
+        console.log("c'est le tour de J1");
     }
 };
 
@@ -56,7 +59,7 @@ var ajoutJeton = function (event) {
 
     //fonction qui permet de montrer/changer la couleur du joueur actif
     //penser a changer le queryselecteur de l'element a changer
-    // changeJoueurIndicateur();
+    changeJoueurIndicateur();
 }
 
 //initialise la première ligne/la rend clickable
@@ -346,7 +349,7 @@ var reset = function (event) {
         console.log("ajoutJeton");
         ligne6[i].addEventListener("click", ajoutJeton);
     }
-    // changeJoueurIndicateur();
+    changeJoueurIndicateur();
 
 }
 
