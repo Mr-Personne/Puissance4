@@ -345,7 +345,7 @@ var reset = function (event) {
         console.log("ajoutJeton");
         ligne6[i].addEventListener("click", ajoutJeton);
     }
-    changeJoueurIndicateur();
+    // changeJoueurIndicateur();
 
 }
 
