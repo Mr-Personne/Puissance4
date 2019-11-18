@@ -11,8 +11,9 @@ var JetonALaSuite = 0;
 
 var ajoutJeton = function (event) {
     // console.log("ajoutJeton");
-    //si l'emplacement est déja pris :
-    if (event.target.classList[1] == "jeton-rouge" || event.target.classList[1] == "jeton-jaune") {
+    //si l'emplacement est déja pris ou le tour en cour est celui de l'ia:
+    if (event.target.classList[1] == "jeton-rouge" || event.target.classList[1] == "jeton-jaune"
+        || player1 == false) {
         console.log("not free space, go up");
         // arrete la fonction
         return;
@@ -29,13 +30,36 @@ var ajoutJeton = function (event) {
             player1 = false;
         }
 
-        // setTimeout(function(){ alert("Hello"); }, 3000);
-        tourIA(event);
+
+        setTimeout(function () {
+            var jetonJoué = false;
+            var indexAléatoire, num = 0, nbrPlaceLibre = 0;
+
+            var ligne6 = document.querySelectorAll(".ligne6 td");
+            var ligne5 = document.querySelectorAll(".ligne5 td");
+            var ligne4 = document.querySelectorAll(".ligne4 td");
+            var ligne3 = document.querySelectorAll(".ligne3 td");
+            var ligne2 = document.querySelectorAll(".ligne2 td");
+            var ligne1 = document.querySelectorAll(".ligne1 td");
+            var lignesArray = [ligne6, ligne5, ligne4, ligne3, ligne2, ligne1];
+
+            //ia "intelligente" qui verif si player 1 est sur le point de gagner
+            jetonJoué = IAVerifVerticale();
+            if (jetonJoué !== true) {
+                jetonJoué = IAVerifHorizontale();
+            }
+            console.log("ia jeton joué", jetonJoué);
+            //section 'while' pour l'ia basique
+            // iaBasiqueLignes(jetonJoué, indexAléatoire, num, nbrPlaceLibre, lignesArray);
+            iaBasiqueCol(jetonJoué, indexAléatoire, num, nbrPlaceLibre, lignesArray);
+            verifWin(event);
+        }, 700);
+        // tourIA(event);
         // fonction qui vérifie si il y a des / une suite(s) gagnant pour IA
-        verifWin(event, 3000);
+        // verifWin(event);
 
     }
-    console.log(" player1 ", player1);
+    console.log(" player1 avant timeout", player1);
     // fonction qui vérifie si il y a des/une suite(s) gagnant
     // verifWin(event);
 }
@@ -73,12 +97,16 @@ function verifHorizontale(event) {
                 && currentRow[j + 2].classList[1] == "jeton-rouge" && currentRow[j + 3].classList[1] == "jeton-rouge") {
 
                 alert("winner is red");
+                window.location = "http://www.mozilla.org";
+                // reset();
 
             }
             else if (currentRow[j].classList[1] == "jeton-jaune" && currentRow[j + 1].classList[1] == "jeton-jaune"
                 && currentRow[j + 2].classList[1] == "jeton-jaune" && currentRow[j + 3].classList[1] == "jeton-jaune") {
 
                 alert("winner is yellow");
+                window.location = "http://www.mozilla.org";
+                // reset();
 
             }
         }
@@ -113,12 +141,16 @@ function verifVerticale(event) {
                 && currentCol[j + 2].classList[1] == "jeton-rouge" && currentCol[j + 3].classList[1] == "jeton-rouge") {
 
                 alert("winner is red");
+                window.location = "http://www.mozilla.org";
+                // reset();
 
             }
             else if (currentCol[j].classList[1] == "jeton-jaune" && currentCol[j + 1].classList[1] == "jeton-jaune"
                 && currentCol[j + 2].classList[1] == "jeton-jaune" && currentCol[j + 3].classList[1] == "jeton-jaune") {
 
                 alert("winner is yellow");
+                window.location = "http://www.mozilla.org";
+                // reset();
 
             }
         }
@@ -162,6 +194,8 @@ function verifDiagonaleGaucheDroite(event) {
                         if (currentRow[j + 3].classList[1] == "jeton-rouge") {
                             // console.log("currentRow 4: ", currentRow);
                             alert("winner is rouge");
+                            window.location = "http://www.mozilla.org";
+                            // reset();
                         }
 
                     }
@@ -185,6 +219,8 @@ function verifDiagonaleGaucheDroite(event) {
                         if (currentRow[j + 3].classList[1] == "jeton-jaune") {
                             // console.log("currentRow 4: ", currentRow);
                             alert("winner is jaune");
+                            window.location = "http://www.mozilla.org";
+                            // reset();
                         }
 
                     }
@@ -234,6 +270,8 @@ function verifDiagonaleDroiteGauche(event) {
                         if (currentRow[j - 3].classList[1] == "jeton-rouge") {
                             // console.log("currentRow 4: ", currentRow);
                             alert("winner is rouge");
+                            window.location = "http://www.mozilla.org";
+                            // reset();
                         }
 
                     }
@@ -257,6 +295,8 @@ function verifDiagonaleDroiteGauche(event) {
                         if (currentRow[j - 3].classList[1] == "jeton-jaune") {
                             // console.log("currentRow 4: ", currentRow);
                             alert("winner is jaune");
+                            window.location = "http://www.mozilla.org";
+                            // reset();
                         }
 
                     }
@@ -290,6 +330,48 @@ function makeTopClickable(event) {
         nextPos[cellRowIndex].addEventListener("click", ajoutJeton);
     }
 }
+
+
+//SECTION RESET----------------------------------------------------------------------
+// --------------------------------------------------------------------------------------
+var reset = function (event) {
+    var x = document.querySelectorAll('td')
+    console.log('avant lol', x)
+
+    for (items of x) {
+        items.classList.remove('jeton-rouge', 'jeton-jaune');
+        items.removeEventListener("click", ajoutJeton);
+    }
+    console.log('apres lol', x)
+    player1 = true;
+    for (var i = 0; i < ligne6.length; i++) {
+        console.log("ajoutJeton");
+        ligne6[i].addEventListener("click", ajoutJeton);
+    }
+    changeJoueurIndicateur();
+
+}
+
+
+//addeventlistener pour bouton (pour testes)
+/////////////////////////////////////////////////////
+// var btnreset = document.querySelector("#reset-btn");
+
+// btnreset.addEventListener("click", reset);
+
+
+
+// btnreset.addEventListener("click", () => {
+
+//     var x = document.querySelectorAll('td')
+//     console.log('avant lol', x)
+
+//     for (items of x) {
+//         items.classList.remove('jeton-rouge', 'jeton-jaune');
+//     }
+//     console.log('apres lol', x)
+//     player1 = true;
+// });
 
 
 //IA SECTION BELOW---------------------------------------------------------------------------
