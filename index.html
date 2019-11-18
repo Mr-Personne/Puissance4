@@ -47,13 +47,18 @@
 					<div class="collapse navbar-collapse justify-content-end my-2" id="navbarNavAltMarkup">
 						<ul class="navbar-nav text-center text-lg-right text-xl-right font-weight-bold">
 							<li class="nav-item mr-0 mr-lg-5 mr-xl-5">
-								<a class="nav-link text-white" href="index.html">ACCUEIL</a>
+								<a class="nav-link" href="index.html">ACCUEIL</a>
 							</li>
 							<li class="nav-item mr-0 mr-lg-5 mr-xl-5">
-								<a class="nav-link text-white" href="human-versus.html">DUEL VERSUS</a>
+								<a class="nav-link" href="human-versus.html">DUEL VERSUS</a>
 							</li>
-							<li class="nav-item mr-0 mr-lg-5 mr-xl-5">
-								<a class="nav-link text-white" href="ia-versus.html">I.A. VERSUS</a>
+							<li class="nav-item dropdown mr-0 mr-lg-5 mr-xl-5">
+								<a class="nav-link dropdown-toggle" href="#" id="navbarDropdown" role="button" data-toggle="dropdown" 
+								aria-haspopup="true" aria-expanded="false">I.A. VERSUS</a>
+									<div class="dropdown-menu" aria-labelledby="navbarDropdown">
+										<a class="dropdown-item text-center" onclick="window.location.href = 'ia-versus.html';">MODE RECRUE</a>
+										<a class="dropdown-item text-center" onclick="window.location.href = 'ia-versus.html';">MODE VÉTÉRAN</a>
+									</div>
 							</li>
 						</ul>
 					</div>
@@ -78,7 +83,7 @@
 							<div class="modal-dialog modal-dialog-scrollable" role="document">
 								<div class="modal-content">
 									<div class="modal-header">
-										<h1 class="modal-title" id="exampleModalScrollableTitle">Puissance 4</h>
+										<h1 class="modal-title" id="exampleModalScrollableTitle">Puissance 4</h1>
 										<button type="button" class="close" data-dismiss="modal" aria-label="Close">
 											<span aria-hidden="true">&times;</span>
 										</button>

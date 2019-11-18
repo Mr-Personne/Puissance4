@@ -26,6 +26,18 @@ header {
 header .nav-link {
   color: #08a0b8 !important;
 }
+header .dropdown-menu {
+  background-color: #d46d06 !important;
+  padding: 0;
+}
+header .dropdown-menu .dropdown-item {
+  color: #08a0b8 !important;
+  font-weight: bold;
+}
+header .dropdown-menu .dropdown-item:hover {
+  border-radius: 50% 20%/10% 40%;
+  background-color: rgba(0, 0, 0, 0.3) !important;
+}
 header .nav-link:hover {
   border-radius: 50% 20%/10% 40%;
   background-color: rgba(0, 0, 0, 0.3) !important;
