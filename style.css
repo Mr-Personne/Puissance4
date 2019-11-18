@@ -21,13 +21,13 @@ main .btn {
 }
 
 header {
-  background-color: #d46d06;
+  background-color: #d56e07;
 }
 header .nav-link {
   color: #08a0b8 !important;
 }
 header .dropdown-menu {
-  background-color: #d46d06 !important;
+  background-color: #d56e07 !important;
   padding: 0;
 }
 header .dropdown-menu .dropdown-item {
@@ -61,7 +61,7 @@ header .nav-link:hover {
 }
 
 #game td.player1 {
-  background-color: #d46d06;
+  background-color: #d56e07;
 }
 
 #game td.player2 {
@@ -69,10 +69,10 @@ header .nav-link:hover {
 }
 
 footer {
-  background-color: #d46d06;
+  background-color: #d56e07;
   opacity: 0.7;
   height: 55px;
-  color: #08a0b8;
+  color: black;
   font-size: 12px;
 }
 
