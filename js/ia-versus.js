@@ -51,6 +51,7 @@ var ajoutJeton = function (event) {
 
         changeJoueurIndicateur();
 
+        //met commence un timer qui fera jouer l'ia dans X millisecondes
         setTimeout(function () {
             var jetonJoué = false;
             var indexAléatoire, num = 0, nbrPlaceLibre = 0;
