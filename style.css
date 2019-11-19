@@ -214,12 +214,9 @@ footer {
   }
 }
 @media (max-width: 575.98px) {
-  header .navbar {
-    flex-wrap: nowrap;
-  }
   header img {
-    width: 50%;
-    height: 50%;
+    width: 200px;
+    height: 25px;
   }
 
   main {
