@@ -12,16 +12,55 @@ var JetonALaSuite = 0;
 //fonction qui change couleur de l'indicateur du joueur actif
 function changeJoueurIndicateur(){
     
-    var indicateur = document.querySelector("#indicateur");
-    console.log("début indication ",indicateur);
+    var indicateurJ1 = document.querySelector("#indicateur-j1");
+    var indicateurJ2 = document.querySelector("#indicateur-j2");
+    // console.log("début indication ",indicateur);
     if (player1 == false){
-        indicateur.classList = "jeton-jaune";
-        console.log("player1 false jaune indication");
+        indicateurJ1.classList = "d-none";
+        indicateurJ2.classList = "d-block";
+        console.log("c'est le tour de J2");
     }
     else if (player1 == true){
-        indicateur.classList = "jeton-rouge";
-        console.log("player1 true rouge indication");
+        indicateurJ2.classList = "d-none";
+        indicateurJ1.classList = "d-block";
+        console.log("c'est le tour de J1");
     }
+};
+
+
+
+//fonction qui change couleur de l'indicateur du joueur actif
+function indicateurWinner(winner){
+    
+    var indicateur = document.querySelector("#indicateur-winner");
+    var boutonReset = document.querySelector("#bouton-reset");
+    
+    // console.log("début indication ",indicateur);
+    if (winner == "j1"){
+        indicateur.innerText = "Joueur 1 Wins";
+        indicateur.classList.remove("d-none");
+        indicateur.classList.add("d-block");
+        boutonReset.classList.remove("d-none");
+        boutonReset.classList.add("d-block");
+        console.log("j1 wins");
+    }
+    else if (winner == "j2"){
+        indicateur.innerText = "Joueur 2 Wins";
+        indicateur.classList.remove("d-none");
+        indicateur.classList.add("d-block");
+        boutonReset.classList.remove("d-none");
+        boutonReset.classList.add("d-block");
+        console.log("j2 wins");
+    }
+    else if (winner == "cache moi"){
+        indicateur.classList.remove("d-block");
+        indicateur.classList.add("d-none");
+        boutonReset.classList.remove("d-block");
+        boutonReset.classList.add("d-none");
+        console.log("cache moi wins");
+    }
+
+    boutonReset.addEventListener("click", reset);
 };
 
 var ajoutJeton = function (event) {
@@ -56,7 +95,7 @@ var ajoutJeton = function (event) {
 
     //fonction qui permet de montrer/changer la couleur du joueur actif
     //penser a changer le queryselecteur de l'element a changer
-    // changeJoueurIndicateur();
+    changeJoueurIndicateur();
 }
 
 //initialise la première ligne/la rend clickable
@@ -91,17 +130,19 @@ function verifHorizontale(event) {
             if (currentRow[j].classList[1] == "jeton-rouge" && currentRow[j + 1].classList[1] == "jeton-rouge"
                 && currentRow[j + 2].classList[1] == "jeton-rouge" && currentRow[j + 3].classList[1] == "jeton-rouge") {
 
-                alert("winner is red");
+                // alert("winner is red");
+                indicateurWinner("j1");
                 // window.location = "http://www.mozilla.org";
-                reset();
+                // reset();
 
             }
             else if (currentRow[j].classList[1] == "jeton-jaune" && currentRow[j + 1].classList[1] == "jeton-jaune"
                 && currentRow[j + 2].classList[1] == "jeton-jaune" && currentRow[j + 3].classList[1] == "jeton-jaune") {
 
-                alert("winner is yellow");
+                // alert("winner is yellow");
+                indicateurWinner("j2");
                 // window.location = "http://www.mozilla.org";
-                reset();
+                // reset();
 
             }
         }
@@ -135,17 +176,19 @@ function verifVerticale(event) {
             if (currentCol[j].classList[1] == "jeton-rouge" && currentCol[j + 1].classList[1] == "jeton-rouge"
                 && currentCol[j + 2].classList[1] == "jeton-rouge" && currentCol[j + 3].classList[1] == "jeton-rouge") {
 
-                alert("winner is red");
+                // alert("winner is red");
+                indicateurWinner("j1");
                 // window.location = "http://www.mozilla.org";
-                reset();
+                // reset();
 
             }
             else if (currentCol[j].classList[1] == "jeton-jaune" && currentCol[j + 1].classList[1] == "jeton-jaune"
                 && currentCol[j + 2].classList[1] == "jeton-jaune" && currentCol[j + 3].classList[1] == "jeton-jaune") {
 
-                alert("winner is yellow");
+                // alert("winner is yellow");
+                indicateurWinner("j2");
                 // window.location = "http://www.mozilla.org";
-                reset();
+                // reset();
 
             }
         }
@@ -189,9 +232,10 @@ function verifDiagonaleGaucheDroite(event) {
 
                         if (currentRow[j + 3].classList[1] == "jeton-rouge") {
                             // console.log("currentRow 4: ", currentRow);
-                            alert("winner is rouge");
+                            // alert("winner is rouge");
                             // window.location = "http://www.mozilla.org";
-                            reset();
+                            // reset();
+                            indicateurWinner("j1");
                         }
 
                     }
@@ -214,9 +258,10 @@ function verifDiagonaleGaucheDroite(event) {
 
                         if (currentRow[j + 3].classList[1] == "jeton-jaune") {
                             // console.log("currentRow 4: ", currentRow);
-                            alert("winner is jaune");
+                            // alert("winner is jaune");
                             // window.location = "http://www.mozilla.org";
-                            reset();
+                            // reset();
+                            indicateurWinner("j2");
                         }
 
                     }
@@ -265,9 +310,10 @@ function verifDiagonaleDroiteGauche(event) {
 
                         if (currentRow[j - 3].classList[1] == "jeton-rouge") {
                             console.log("currentRow 4: ", currentRow);
-                            alert("winner is rouge");
+                            // alert("winner is rouge");
                             // window.location = "http://www.mozilla.org";
-                            reset();
+                            // reset();
+                            indicateurWinner("j1");
                         }
 
                     }
@@ -290,9 +336,10 @@ function verifDiagonaleDroiteGauche(event) {
 
                         if (currentRow[j - 3].classList[1] == "jeton-jaune") {
                             console.log("currentRow 4: ", currentRow);
-                            alert("winner is jaune");
+                            // alert("winner is jaune");
                             // window.location = "http://www.mozilla.org";
-                            reset();
+                            // reset();
+                            indicateurWinner("j2");
                         }
 
                     }
@@ -318,7 +365,7 @@ function verifWin(event) {
 
 function makeTopClickable(event) {
     if (event.target.parentElement.classList.value != "ligne1") {
-        // console.log(event.target.parentElement);
+        console.log(event);
         var nextPos = event.target.parentElement.previousElementSibling.querySelectorAll("td");
         //trouve l'index position de la case clické
         var cellRowIndex = event.target.cellIndex;
@@ -346,7 +393,8 @@ var reset = function (event) {
         console.log("ajoutJeton");
         ligne6[i].addEventListener("click", ajoutJeton);
     }
-    // changeJoueurIndicateur();
+    changeJoueurIndicateur();
+    indicateurWinner("cache moi");
 
 }
 
