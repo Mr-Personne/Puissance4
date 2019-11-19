@@ -76,60 +76,6 @@ footer {
   font-size: 12px;
 }
 
-@media (min-width: 768px) and (max-width: 991.98px) {
-  main {
-    background-color: #f49737;
-    background-image: none;
-  }
-}
-@media (min-width: 576px) and (max-width: 767.98px) {
-  main {
-    background-color: #f49737;
-    background-image: none;
-  }
-
-  .h2-0-100, .h2-pro-maths {
-    padding-top: 50px;
-  }
-
-  .h2-page-regle {
-    padding-top: 0;
-  }
-
-  .text-victoire-defaite {
-    font-size: 3rem;
-  }
-
-  .text-bravo-dommage {
-    font-size: 1rem;
-  }
-
-  .titre-jeu {
-    margin-top: -30px;
-  }
-}
-@media (max-width: 575.98px) {
-  header .navbar {
-    flex-wrap: nowrap;
-  }
-  header img {
-    width: 50%;
-    height: 50%;
-  }
-
-  main {
-    background-color: #f49737;
-    background-image: none;
-  }
-  main #game td {
-    width: 1.5cm;
-    height: 1.5cm;
-  }
-
-  .text-victoire-defaite {
-    font-size: 2.5rem;
-  }
-}
 /*General*/
 .bg-alert {
   font-family: "Open Sans", sans-serif;
@@ -233,6 +179,60 @@ footer {
   80% {
     transform: translateY(0);
     text-shadow: 0 0 0 #0C2FFB, 0 0 0 #2CFCFD, 0 0 0 #FB203B, 0 0 0 #FEFC4B;
+  }
+}
+@media (min-width: 768px) and (max-width: 991.98px) {
+  main {
+    background-color: #f49737;
+    background-image: none;
+  }
+}
+@media (min-width: 576px) and (max-width: 767.98px) {
+  main {
+    background-color: #f49737;
+    background-image: none;
+  }
+
+  .h2-0-100, .h2-pro-maths {
+    padding-top: 50px;
+  }
+
+  .h2-page-regle {
+    padding-top: 0;
+  }
+
+  .text-victoire-defaite {
+    font-size: 3rem;
+  }
+
+  .text-bravo-dommage {
+    font-size: 1rem;
+  }
+
+  .titre-jeu {
+    margin-top: -30px;
+  }
+}
+@media (max-width: 575.98px) {
+  header .navbar {
+    flex-wrap: nowrap;
+  }
+  header img {
+    width: 50%;
+    height: 50%;
+  }
+
+  main {
+    background-color: #f49737;
+    background-image: none;
+  }
+  main #game td {
+    width: 1.5cm;
+    height: 1.5cm;
+  }
+
+  .text-victoire-defaite {
+    font-size: 2.5rem;
   }
 }
 
