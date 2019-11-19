@@ -1,4 +1,3 @@
-<<<<<<< HEAD
 @font-face {
   font-family: "Game_Time";
   src: url(Game_Time.ttf);
@@ -138,13 +137,15 @@ footer {
   background: url("../rootprojet/media/58671-[Converti].png") no-repeat center;
   background-size: cover;
   min-height: 70vh;
-  /*Textes*/
 }
-.bg-alert .text-victoire-defaite {
+
+/*Textes*/
+.text-victoire-defaite {
   font-size: 7rem;
   padding-top: 40px;
 }
-.bg-alert .text-bravo-dommage {
+
+.text-bravo-dommage {
   font-size: 1.5rem;
   padding-bottom: 40px;
   margin-top: -20px;
@@ -207,7 +208,7 @@ footer {
   opacity: 0;
 }
 
-.text-victoire-defaite {
+.text-victoire-defaite .text-bravo-dommage {
   animation: text-shadow 1.5s ease-in-out infinite;
   font-size: 5em;
   font-weight: 900;
@@ -238,181 +239,3 @@ footer {
 }
 
 /*# sourceMappingURL=style.css.map */
-=======
-
-@import url('https://fonts.googleapis.com/css?family=Titan+One');
-
-/*General*/
-body {
-	font-family: 'Open Sans', sans-serif;
-    font-weight: 300;
-    background: url('../rootprojet/media/Mashup-fond-ecran-geek-nerd-personnages-jeu-video-cartoon-background-sonic.jpg') no-repeat center;
-    background-size: cover;
-    min-height: 100vh;
-}
-
-.container {
-    padding: 0;
-    width:320px;
-	height:320px;
-	top:50%;
-	left:50%;
-	transform:translate(-50%,-50%)
-}
-
-/*Textes*/
-h1 {
-    font-family: 'Fontastique';
-    font-size: 3rem;
-}
-
-h2 {
-    color: #2BB8C7;
-    font-weight: 700;
-    font-size: 1rem;
-}
-
-.h2-0-100 {
-    padding-top: 130px;
-}
-
-.h2-pro-maths {
-    padding-top: 110px;
-}
-.titre-jeu {
-    margin-top: -80px;
-}
-p {
-    font-size: 1rem;
-}
-
-.h2-page-regle {
-    padding-top: 20px;
-}
-
-.text-victoire-defaite {
-    font-size: 7rem;
-    padding-top: 40px;
-}
-
-.text-bravo-dommage {
-    font-size: 1.5rem;
-    padding-bottom: 40px;
-    margin-top: -20px;
-}
-
-/*Nav*/
-.navbar-collapse {
-    font-size: 1.1rem;
-}
-
-.navbar-expand-lg .navbar-nav .nav-link {
-    padding-right: 1.5rem;
-    padding-left: 1.5rem;
-}
-.nav-link-table {
-    padding-right: 0 !important;
-}
-
-.bg-light {
-    background-color: #1B6B89!important;
-}
-
-.nav-active {
-    color: #2BB8C7!important;
-    font-weight: 700;
-}
-
-.navbar-brand {
-    font-family: 'Fontastique';
-    font-size: 1.8rem;
-}
-
-.navbar-light .navbar-toggler {
-    border-color: #FFFFFF;
-}
-.navbar-toggler:focus {
-    outline: none !important;
-}
-
-/*Contenu page*/
-.container-regles {
-    margin-top: 70px;
-}
-
-.contenu-page {
-    max-width: 800px;
-}
-/*Boutons*/
-.btn-lien {
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    background-color: #29B8C7;
-    border: 0;
-    font-weight: 300;
-    font-size: 1.2rem;
-    padding-left: 2%;
-    padding-right: 2%;
-    cursor: pointer;
-    transition-duration: 0.5s;
-}
-
-.btn-lien:hover {
-    background-color: #151F27;
-    transition-duration: 0.5s;
-}
-
-.btn-lien:focus {
-    background-color: #151F27 !important;
-    box-shadow: none !important;
-}
-
-.btn-lien:disabled {
-    background-color: red !important;
-}
-.bouton-text {
-    background-color: #151F27;
-    border-radius: 50px;
-    margin-top: 20px;
-    margin-bottom: 20px;
-    padding: 6px;
-    font-size: 1.2rem;
-}
-
-.container-buttons {
-    max-width: 800px;
-}
- 
-/*Footer*/
-footer {
-    background-color: rgb(14, 55, 70);
-}
-
-.text-footer {
-    font-size: 0.8rem;
-}
-
-/*jeu*/
-.bloc {
-    background-color: rgba(21,31,39,0.8);
-    padding: 25px;
-    border-radius: 25px;
-}
-
-.contenu-page-standard {
-    max-width: 900px;
-    margin-top: 150px;
-}
-/*Defaite*/
-.bloc-rouge {
-    background-color: rgba(221,38,39,0.8);
-}
-
-.jeton-rouge {
-    background-color: red !important;
-}
-.jeton-jaune {
-    background-color: yellow !important;
-}
->>>>>>> 841fccd9fee5a852d8479813e5264a01890b93d0
