@@ -206,7 +206,7 @@ footer {
   opacity: 0;
 }
 
-h1 {
+.text-victoire-defaite {
   animation: text-shadow 1.5s ease-in-out infinite;
   font-size: 5em;
   font-weight: 900;
