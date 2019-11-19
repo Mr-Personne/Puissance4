@@ -70,7 +70,7 @@
     opacity: 0; 
     }
     
-    h1 {
+    .text-victoire-defaite {
     animation: text-shadow 1.5s ease-in-out infinite;
     font-size: 5em;
     font-weight: 900;
@@ -121,11 +121,5 @@
     0 0 0 #FB203B, 
     0 0 0 #FEFC4B;
     }
-    }
-    
-    @media (prefers-reduced-motion: reduce) {
-    * {
-    animation: none !important;
-    transition: none !important;
-    }
-    }
+       
+} 
