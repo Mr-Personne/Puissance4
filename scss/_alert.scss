@@ -5,18 +5,17 @@
     background: url('../rootprojet/media/58671-[Converti].png') no-repeat center;
     background-size: cover;
     min-height: 70vh;
-       
-    }
- /*Textes*/
-    .text-victoire-defaite {
-        font-size: 7rem;
-        padding-top: 40px;
-    }
-        
-    .text-bravo-dommage {
-        font-size: 1.5rem;
-        padding-bottom: 40px;
-        margin-top: -20px;
+        /*Textes*/
+        .text-victoire-defaite {
+            font-size: 7rem;
+            padding-top: 40px;
+        }
+            
+        .text-bravo-dommage {
+            font-size: 1.5rem;
+            padding-bottom: 40px;
+            margin-top: -20px;
+        }
     }
 
     /*Boutons*/
@@ -71,7 +70,7 @@
     opacity: 0; 
     }
     
-    .text-victoire-defaite .text-bravo-dommage {
+    .text-victoire-defaite {
     animation: text-shadow 1.5s ease-in-out infinite;
     font-size: 5em;
     font-weight: 900;
