@@ -181,6 +181,7 @@ footer {
     text-shadow: 0 0 0 #0C2FFB, 0 0 0 #2CFCFD, 0 0 0 #FB203B, 0 0 0 #FEFC4B;
   }
 }
+
 @media (min-width: 768px) and (max-width: 991.98px) {
   main {
     background-color: #f49737;
@@ -229,7 +230,7 @@ footer {
   }
 
   .text-victoire-defaite {
-    font-size: 2.5rem;
+    font-size: 2.5rem !important;
   }
 }
 
