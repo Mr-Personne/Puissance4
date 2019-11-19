@@ -13,9 +13,9 @@
         background-color: white;
         cursor: pointer;
     }
-    #game td.player1 {
-        background-color: $dark-orange ;
+    .jeton-rouge{
+        background-color: $dark-orange !important;
     }
-    #game td.player2 {
-        background-color: $blue;
+    .jeton-jaune {
+        background-color: $blue !important;
     }
