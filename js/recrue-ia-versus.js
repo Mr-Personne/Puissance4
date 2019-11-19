@@ -114,7 +114,7 @@ function verifHorizontale(event) {
                 && currentRow[j + 2].classList[1] == "jeton-rouge" && currentRow[j + 3].classList[1] == "jeton-rouge") {
 
                 alert("winner is red");
-                window.location = "http://www.mozilla.org";
+                window.location = "win.html";
                 // reset();
 
             }
@@ -122,7 +122,7 @@ function verifHorizontale(event) {
                 && currentRow[j + 2].classList[1] == "jeton-jaune" && currentRow[j + 3].classList[1] == "jeton-jaune") {
 
                 alert("winner is yellow");
-                window.location = "http://www.mozilla.org";
+                window.location = "lose.html";
                 // reset();
 
             }
@@ -158,7 +158,7 @@ function verifVerticale(event) {
                 && currentCol[j + 2].classList[1] == "jeton-rouge" && currentCol[j + 3].classList[1] == "jeton-rouge") {
 
                 alert("winner is red");
-                window.location = "http://www.mozilla.org";
+                window.location = "win.html";
                 // reset();
 
             }
@@ -166,7 +166,7 @@ function verifVerticale(event) {
                 && currentCol[j + 2].classList[1] == "jeton-jaune" && currentCol[j + 3].classList[1] == "jeton-jaune") {
 
                 alert("winner is yellow");
-                window.location = "http://www.mozilla.org";
+                window.location = "lose.html";
                 // reset();
 
             }
@@ -211,7 +211,7 @@ function verifDiagonaleGaucheDroite(event) {
                         if (currentRow[j + 3].classList[1] == "jeton-rouge") {
                             // console.log("currentRow 4: ", currentRow);
                             alert("winner is rouge");
-                            window.location = "http://www.mozilla.org";
+                            window.location = "win.html";
                             // reset();
                         }
 
@@ -236,7 +236,7 @@ function verifDiagonaleGaucheDroite(event) {
                         if (currentRow[j + 3].classList[1] == "jeton-jaune") {
                             // console.log("currentRow 4: ", currentRow);
                             alert("winner is jaune");
-                            window.location = "http://www.mozilla.org";
+                            window.location = "lose.html";
                             // reset();
                         }
 
@@ -287,7 +287,7 @@ function verifDiagonaleDroiteGauche(event) {
                         if (currentRow[j - 3].classList[1] == "jeton-rouge") {
                             // console.log("currentRow 4: ", currentRow);
                             alert("winner is rouge");
-                            window.location = "http://www.mozilla.org";
+                            window.location = "win.html";
                             // reset();
                         }
 
@@ -312,7 +312,7 @@ function verifDiagonaleDroiteGauche(event) {
                         if (currentRow[j - 3].classList[1] == "jeton-jaune") {
                             // console.log("currentRow 4: ", currentRow);
                             alert("winner is jaune");
-                            window.location = "http://www.mozilla.org";
+                            window.location = "lose.html";
                             // reset();
                         }
 
