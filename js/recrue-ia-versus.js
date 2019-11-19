@@ -113,7 +113,7 @@ function verifHorizontale(event) {
             if (currentRow[j].classList[1] == "jeton-rouge" && currentRow[j + 1].classList[1] == "jeton-rouge"
                 && currentRow[j + 2].classList[1] == "jeton-rouge" && currentRow[j + 3].classList[1] == "jeton-rouge") {
 
-                alert("winner is joueur 1");
+                // alert("winner is joueur 1");
                 window.location = "win.html";
                 // reset();
 
@@ -121,7 +121,7 @@ function verifHorizontale(event) {
             else if (currentRow[j].classList[1] == "jeton-jaune" && currentRow[j + 1].classList[1] == "jeton-jaune"
                 && currentRow[j + 2].classList[1] == "jeton-jaune" && currentRow[j + 3].classList[1] == "jeton-jaune") {
 
-                alert("winner is joueur 2");
+                // alert("winner is joueur 2");
                 window.location = "lose.html";
                 // reset();
 
@@ -157,7 +157,7 @@ function verifVerticale(event) {
             if (currentCol[j].classList[1] == "jeton-rouge" && currentCol[j + 1].classList[1] == "jeton-rouge"
                 && currentCol[j + 2].classList[1] == "jeton-rouge" && currentCol[j + 3].classList[1] == "jeton-rouge") {
 
-                alert("winner is joueur 1");
+                // alert("winner is joueur 1");
                 window.location = "win.html";
                 // reset();
 
@@ -165,7 +165,7 @@ function verifVerticale(event) {
             else if (currentCol[j].classList[1] == "jeton-jaune" && currentCol[j + 1].classList[1] == "jeton-jaune"
                 && currentCol[j + 2].classList[1] == "jeton-jaune" && currentCol[j + 3].classList[1] == "jeton-jaune") {
 
-                alert("winner is joueur 2");
+                // alert("winner is joueur 2");
                 window.location = "lose.html";
                 // reset();
 
@@ -210,7 +210,7 @@ function verifDiagonaleGaucheDroite(event) {
 
                         if (currentRow[j + 3].classList[1] == "jeton-rouge") {
                             // console.log("currentRow 4: ", currentRow);
-                            alert("winner is joueur 1");
+                            // alert("winner is joueur 1");
                             window.location = "win.html";
                             // reset();
                         }
@@ -235,7 +235,7 @@ function verifDiagonaleGaucheDroite(event) {
 
                         if (currentRow[j + 3].classList[1] == "jeton-jaune") {
                             // console.log("currentRow 4: ", currentRow);
-                            alert("winner is joueur 2");
+                            // alert("winner is joueur 2");
                             window.location = "lose.html";
                             // reset();
                         }
@@ -286,7 +286,7 @@ function verifDiagonaleDroiteGauche(event) {
 
                         if (currentRow[j - 3].classList[1] == "jeton-rouge") {
                             // console.log("currentRow 4: ", currentRow);
-                            alert("winner is joueur 1");
+                            // alert("winner is joueur 1");
                             window.location = "win.html";
                             // reset();
                         }
@@ -311,7 +311,7 @@ function verifDiagonaleDroiteGauche(event) {
 
                         if (currentRow[j - 3].classList[1] == "jeton-jaune") {
                             // console.log("currentRow 4: ", currentRow);
-                            alert("winner is joueur 2");
+                            // alert("winner is joueur 2");
                             window.location = "lose.html";
                             // reset();
                         }
